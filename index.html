@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue@next"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shapes.css">
+</head>
+
+<body>
+  <div id="app" style="text-align: center;">
+    <p><button v-if="button1.show" @click="click1">{{ button1.text }}</button></p>
+    <p><button v-if="x == 1 && boundaries" @click="click2">Don't click me</button></p>
+    <div v-if="x == 2" style="vertical-align: middle;">
+      <button @click="shapeLeft">&lt;--</button>
+      <span class="shape" :class="shapeArray[0].class"></span>
+      <button @click="shapeRight">--&gt;</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+.shape {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+}
+
+.shape.circle {
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+}
+
+.shape.red {
+  background: red;
+}
+
+.shape.blue {
+  background: blue;
+}
+
+.shape.green {
+  background: green;
+}
+
+.shape.square {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.shape.diamond {
+  transform:rotate(45deg) scale(0.707);
+}
