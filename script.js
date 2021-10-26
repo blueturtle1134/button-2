@@ -76,8 +76,7 @@ app = Vue.createApp({
             }
             this.numberArray.push(this.numberArray.shift());
             if (green) {
-                this.shapeArray.push(new Shape(2, 1));
-                this.shapeArray.push(this.shapeArray.shift());
+                this.shapeArray[0] = new Shape(2, 1);
             }
         }
     }
