@@ -60,6 +60,13 @@ app = Vue.createApp({
             if (id == 0) {
                 this.numberArray[1] += this.numberArray[0];
                 this.numberArray[2] += this.numberArray[0];
+            } else if (id == 1) {
+                for (let i = 0; i < this.numberArray.length; i++) {
+                    if (Math.abs(this.numberArray[i]) >= 10) {
+                        this.numberArray[i] = Math.round(this.numberArray[i] / 10);
+                    }
+                }
+                return;
             } else if (id == 2) {
                 this.numberArray[0] -= this.numberArray[2];
                 this.numberArray[1] -= this.numberArray[2];
