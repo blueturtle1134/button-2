@@ -44,6 +44,48 @@ app = Vue.createApp({
         click2(e) {
             this.boundaries = false;
         },
+		/* Helper to generate ornamented arrows */
+		getShapeArrow(right) {
+			let eCap = (this.xCap-2)%10;
+			let modCap = Math.ceil((this.xCap-2)/10);
+			let result = "";
+			if(eCap > 5) {
+				for(let i = 0; i<eCap-5; i++) {
+					result += "="
+				}
+			}
+			else {
+				for(let i = 0; i<eCap; i++) {
+					result += "-";
+				}
+			}
+			if(this.xLoop < this.xCap) {
+				if(right) {
+					result = "|" + result;
+				}
+				else {
+					result += "|";
+				}
+			}
+			else if (this.xLoop > this.xCap) {
+				if(right) {
+					result += "|";
+				}
+				else {
+					result = "|" + result;
+				}
+			}
+			if(right){
+				for(let i = 0; i<modCap; i++){
+					result += ">";
+				}
+			} else{
+				for(let i = 0; i<modCap; i++){
+					result = "<" + result;
+				}
+			}
+			return result;
+		},
         /* The shape game */
         shapeLeft(e) {
             let a = this.shapeArray[0];
@@ -60,7 +102,7 @@ app = Vue.createApp({
             if (id == 0) {
                 this.numberArray[1] += this.numberArray[0];
                 this.numberArray[2] += this.numberArray[0];
-            } else if (id == 1) {
+            } else if (id == 1 && this.boundaries) {
                 for (let i = 0; i < this.numberArray.length; i++) {
                     if (Math.abs(this.numberArray[i]) >= 10) {
                         this.numberArray[i] = Math.round(this.numberArray[i] / 10);

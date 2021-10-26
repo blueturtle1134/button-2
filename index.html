@@ -13,12 +13,12 @@
         <p><button v-if="shapeArray[0].color == shapeArray[1].color && shapeArray[1].color == shapeArray[shapeArray.length-1].color" @click="click1">Also click me!</button></p>
         <p><button v-if="x == 1 && boundaries" @click="click2">Don't click me</button></p>
         <div v-if="x == 2" style="vertical-align: middle;">
-            <button @click="shapeLeft">&lt;--</button>
+            <button @click="shapeLeft">{{getShapeArrow(false)}}</button>
             <span class="shape" :class="shapeArray[0].class"></span>
-            <button @click="shapeRight">--&gt;</button>
+            <button @click="shapeRight">{{getShapeArrow(true)}}</button>
         </div>
         <div v-if="x == 3">
-            <button :id="n" v-for="n in numberArray.length" @click="numbersClick" v-bind:class="{green: numberArray[n-1]==0}">{{numberArray[n-1]}}</button>
+            <button :id="n" v-for="n in numberArray.length" @click="numbersClick" v-bind:class="{green: numberArray[n-1]==0}" v-bind:disabled="isButtonDisabled">{{numberArray[n-1]}}</button>
         </div>
     </div>
     <script src="script.js"></script>
