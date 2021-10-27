@@ -10,7 +10,7 @@
 <body>
     <div id="app" style="text-align: center;">
         <p><button v-if="button1.show" @click="click1">{{ button1.text }}</button></p>
-        <p><button v-if="shapeArray[0].color == shapeArray[1].color && shapeArray[1].color == shapeArray[shapeArray.length-1].color" @click="click1">Also click me!</button></p>
+        <p><button v-if="shapeArray[0].color == shapeArray[1].color && shapeArray[1].color == shapeArray[shapeArray.length-1].color" @click="clickminus1">Also click me!</button></p>
         <p><button v-if="x == 1 && boundaries" @click="click2">Don't click me</button></p>
         <div v-if="x == 2" style="vertical-align: middle;">
             <button @click="shapeLeft">&lt;--</button>

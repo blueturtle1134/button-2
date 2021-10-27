@@ -14,8 +14,9 @@ app = Vue.createApp({
     data() {
         return {
             x: 0, // Main cycle variable
-            xCap: 4, // Number at which x loops around
-            xLoop: 4, // Amount subtracted per loop
+            xCap: 3, // Number at which x loops around
+            xLoop: 3, // Amount subtracted per loop
+            xFloor: 0, // Number at which x cannot go lower and goes to xCap
             boundaries: true, // Do you respect boundaries?
             button1: {
                 show: true,
@@ -36,13 +37,20 @@ app = Vue.createApp({
         /* The basic button cycle */
         click1(e) {
             this.x++;
-            if (this.x >= this.xCap) {
+            if (this.x > this.xCap) {
                 this.x -= this.xLoop;
             }
         },
         /* Button that doesn't want to be clicked */
         click2(e) {
             this.boundaries = false;
+        },
+        /* Secret minus button */
+        clickminus1(e) {
+            this.x--;
+            if (this.x < this.xFloor) {
+              this.x = this.xCap;
+            }
         },
         /* The shape game */
         shapeLeft(e) {
